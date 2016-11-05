@@ -26,13 +26,14 @@ def normwix(text):
     text = re.sub(r"´", "'", text, flags=re.IGNORECASE)
     #text = re.sub(r"'", "", text, flags=re.IGNORECASE)
     text = re.sub(r"v", "w", text, flags=re.IGNORECASE)
-    text = re.sub(r"c", "k", text, flags=re.IGNORECASE)
+    text = re.sub(r"(c|qu)", "k", text, flags=re.IGNORECASE)
     text = re.sub(r"[0-9]+", "", text, flags=re.IGNORECASE)
     text = re.sub(r"ch", "ts", text, flags=re.IGNORECASE)
     text = re.sub(r"rr", "x", text, flags=re.IGNORECASE)
     text = re.sub(r" +", " ", text, flags=re.IGNORECASE)
     text = re.sub(r"[üï]", "+", text, flags=re.IGNORECASE)
     text = re.sub(r"^ ", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"(?<!t|\[)s", "ts", text, flags=re.IGNORECASE)
     #text = re.sub(r"[áàä]", "a", text, flags=re.IGNORECASE)
     #text = re.sub(r"[éèë]", "e", text, flags=re.IGNORECASE)
     #text = re.sub(r"[íì]", "i", text, flags=re.IGNORECASE)
@@ -51,29 +52,30 @@ def tokenizewix(text):
 
 if __name__ == "__main__":
     l = 4
-    op = sys.argv[1]
-    if not "-" in op:
-        l = 3
-        op = ""
-    else:
-        if "p" in op:
-            l = 3 
-        else:
-            outfile = sys.argv[3]
-            Fo = open(outfile, "w")
-
-    if len(sys.argv) != l:
+    if len(sys.argv) < 2:
         print("normwix.py normalize and tokenize text in wixárika (huichol) ")
-        print("language. It's has GPL licence, so feel free to share it.")
-        print("     normwix.py [-a|-n|-t|-p] inputfile [outputfile]")
-        print("")
+        print("language. It has GPL licence, so feel free to share it.")
+        print("     normwix.py [-a|-n|-t|-p|-h] inputfile [outputfile]")
         print("         -a all: normalize and tokenize")
         print("         -n normalize")
         print("         -t tokenize")
         print("         -p print output")
+        print("         -h this help")
         sys.exit()
+    op = sys.argv[1]
+    if not "-" in op:
+        l = 3
+        op = "a"
+        infile = sys.argv[1]
+    else:
+        infile = sys.argv[2]
+        if "p" in op:
+            l = 2 
+        else:
+            outfile = sys.argv[3]
+            Fo = open(outfile, "w")
 
-    infile = sys.argv[2]
+
     Fi = open(infile, "r")
     text = Fi.read()
     Fi.close()
@@ -81,8 +83,8 @@ if __name__ == "__main__":
         text = normwix(text)
     if ("t" in op) or ("a" in op):
         text = tokenizewix(text)
-    if "p" in op:
-        print(text)
-    else:
+    try:
         Fo.write(text)
         Fo.close()
+    except:
+        print(text)
