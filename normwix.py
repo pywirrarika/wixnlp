@@ -31,14 +31,14 @@ def normwix(text):
     text = re.sub(r"ch", "ts", text, flags=re.IGNORECASE)
     text = re.sub(r"rr", "x", text, flags=re.IGNORECASE)
     text = re.sub(r" +", " ", text, flags=re.IGNORECASE)
+    text = re.sub(r"[üï]", "+", text, flags=re.IGNORECASE)
     text = re.sub(r"^ ", "", text, flags=re.IGNORECASE)
-    text = re.sub(r"[áàä]", "a", text, flags=re.IGNORECASE)
-    text = re.sub(r"[éèë]", "e", text, flags=re.IGNORECASE)
-    text = re.sub(r"[íìï]", "i", text, flags=re.IGNORECASE)
-    text = re.sub(r"[óòö]", "o", text, flags=re.IGNORECASE)
-    text = re.sub(r"[úùü]", "u", text, flags=re.IGNORECASE)
+    #text = re.sub(r"[áàä]", "a", text, flags=re.IGNORECASE)
+    #text = re.sub(r"[éèë]", "e", text, flags=re.IGNORECASE)
+    #text = re.sub(r"[íì]", "i", text, flags=re.IGNORECASE)
+    #text = re.sub(r"[óòö]", "o", text, flags=re.IGNORECASE)
+    #text = re.sub(r"[úù]", "u", text, flags=re.IGNORECASE)
 
-    #text = text.replace("á", "a")
 
     text = re.sub(r"([a-z])\1+", r"\1", text, flags=re.IGNORECASE)
     return text
@@ -50,7 +50,6 @@ def tokenizewix(text):
     return text
 
 if __name__ == "__main__":
-
     l = 4
     op = sys.argv[1]
     if not "-" in op:
@@ -64,8 +63,14 @@ if __name__ == "__main__":
             Fo = open(outfile, "w")
 
     if len(sys.argv) != l:
-        print("Formant:")
+        print("normwix.py normalize and tokenize text in wixárika (huichol) ")
+        print("language. It's has GPL licence, so feel free to share it.")
         print("     normwix.py [-a|-n|-t|-p] inputfile [outputfile]")
+        print("")
+        print("         -a all: normalize and tokenize")
+        print("         -n normalize")
+        print("         -t tokenize")
+        print("         -p print output")
         sys.exit()
 
     infile = sys.argv[2]
@@ -81,4 +86,3 @@ if __name__ == "__main__":
     else:
         Fo.write(text)
         Fo.close()
-
