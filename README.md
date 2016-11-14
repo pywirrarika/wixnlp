@@ -64,4 +64,4 @@ month = sep
 ```
 ## Acknowledgements
 
-This work was supported by the Autonomus Metropolitan University (UAM) and the National Autonomus University of Mexico (UNAM). The logo was desgined by Armando Martínez. 
+This work was supported by the Metropolitan Autonomous University (UAM) and the  National Autonomous University of Mexico (UNAM). The logo was desgined by Armando Martínez. 
