@@ -17,14 +17,11 @@ From an paried translation file _name.wixes_, sep.py can split the file in to in
 
 File example (corpus.wixes):
 ```
-p+-mexa=es una mesa
-p+-xupureru=es un sombrero
-p+-p+teya=es una botella
-p+-tek+xi=es un vaso
-p+-wiki=es un pájaro
-p+-ts+k+=es un perro
-p+-mitsu=es un gato
-p+-muxa=es un borrego
+'ena ha p+xuawe=aquí hay agua
+'ena ha p+yema=aquí está el agua
+'ena ha p+kamawe=aquí no hay agua
+'ena ha p+kaxuawe=aquí no hay agua
+'ena ha p+kayema=aquí no está el agua
 ```
 To split the file use:
 ```
@@ -34,10 +31,36 @@ To merge an wix and an es file in to .wixes:
 ```
 $./tools/sep.py -m corpus
 ```
+To normalize and tokenize
+```
+$./normwix.py corpus.wix
+```
 
-
-## Example
+And to segment, and anotate a entire file:
+```
+$./wixpre.py corpus.wix
+'ena ha p+3 xuawe
+'ena ha p+3 ye15 ma
+'ena ha p+3 ka4 mawe
+'ena ha p+3 ka4 xuawe
+'ena ha p+3 ka4 ye15 ma
+```
 
 ## Citation
 
+You are welcome to use the code under the terms for research or commercial purposes, however please acknowledge its use with a citation:
+Mager Jesus, Barron Carlos and Meza Ivan. "Traductor estadístico wixarika - español usando descomposición morfológica", COMTEL,  number 6, September 2016.
+Here is a BiBTeX entry:
+
+```
+@article{tradmager,
+author = "Mager Hois, Jesús Manuel and Barron Romero, Carlos and Meza Ruíz, Ivan Vladimir",
+journal = "COMTEL",
+number = "6",
+title = "Traductor estadístico wixarika - español usando descomposición morfológica",
+year = "2016",
+month = sep
+}
+
+```
 
