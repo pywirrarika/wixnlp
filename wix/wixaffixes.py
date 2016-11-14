@@ -18,8 +18,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 pre = [
-        ["'a","a", "tsi", "ke", "u","'u", "e", "'e"], # pos 18
-        ["ne", "pe", "te", "xe", "me"], #pos 17
+        ["'a","a",  "ke", "u","'u", "e", "'e"], # pos 18
+        ["ne", "pe", "te", "xe", "me", "tsi",], #pos 17
         ["ka", "r+ka", "n+ka", "ke"], #pos 16
         ["p+", "m+", "p"], #pos 15
         ["ka"], #pos 14

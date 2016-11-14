@@ -25,7 +25,7 @@ from wmorph import Verb
 
 class Word:
     def __init__(self):
-        F = codecs.open("dic", mode="r", encoding="utf-8")
+        F = codecs.open("data/dic", mode="r", encoding="utf-8")
         self.dic = {}
         self.symbols = '!¡"¿?,.'
 
@@ -49,7 +49,7 @@ class Word:
 
 def segment(line, joinm=1, s=0):
     debug=0
-    F = codecs.open("dic", mode="r", encoding="utf-8")
+    F = codecs.open("data/dic", mode="r", encoding="utf-8")
     w = Word()
     
     tokens = line.split()
@@ -57,7 +57,7 @@ def segment(line, joinm=1, s=0):
     words = []
 
     for token in tokens:
-        word = Verb(token)
+        word = Verb(token, debug=debug)
         typ = w.checkdic(token)
         if debug:
             print(typ)
@@ -79,6 +79,8 @@ def segment(line, joinm=1, s=0):
                         words.append(str(affix[1])+str(affix[0]))
                     else:
                         words.append(str(affix[1]))
+            else:
+                words.append(token)
 
     if joinm:
         return " ".join(words)
@@ -92,7 +94,7 @@ def segtext(text, s=0):
     return "\n".join(seglines)
 
 if __name__ == "__main__":
-    alo = "'ik+ p+tuxa"
+    alo = "nanait+a"
     words = segment(alo)
     print(words)
 

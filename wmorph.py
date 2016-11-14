@@ -34,8 +34,8 @@ class Verb:
         self.roots = []
         self.rootslarge = []
         self.debug=debug
-        Fl = codecs.open("steam.large", mode="r", encoding="utf-8")
-        F = codecs.open("steam", mode="r", encoding="utf-8")
+        #Fl = codecs.open("data/steam.large", mode="r", encoding="utf-8")
+        F = codecs.open("data/steam", mode="r", encoding="utf-8")
         line = F.readline()
         while 1:
             line=line.replace("\n", "")
@@ -46,17 +46,6 @@ class Verb:
         if self.debug:
             print("**************************")
             print(self.roots)
-
-        line = Fl.readline()
-        while 1:
-            line=line.replace("\n", "")
-            self.rootslarge.append(line)
-            line=Fl.readline()
-            if not line:
-                break
-        if self.debug:
-            print("**************************")
-            print(self.rootslarge)
 
 
         self.start()
@@ -140,8 +129,8 @@ class Verb:
                 if len(self.verb) == len(nprev):
                     self.paths.append(npath)
                 self.end(nprev, pos+1, npath)
-        if not gotone:
-            self.end(prev, pos+1, path)
+        #if not gotone:
+        self.end(prev, pos+1, path)
 
 class Word:
     def __init__(self, model_file):
