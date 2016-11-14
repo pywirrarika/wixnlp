@@ -1,4 +1,4 @@
-![wixnlp](https://raw.githubusercontent.com/pywirrarika/wixnlp/master/tools/wixnlp.png)
+<img src="https://raw.githubusercontent.com/pywirrarika/wixnlp/master/tools/wixnlp.png" width=150px>
 # wixnlp 
 
 * **Version:** 0.1
