@@ -1,4 +1,4 @@
-# wixnlp 
+<img src="https://raw.githubusercontent.com/pywirrarika/wixnlp/master/tools/wixnlp.png" width=250px>
 
 * **Version:** 0.1
 * **Licence:** GPL v.3
@@ -61,6 +61,7 @@ title = "Traductor estadístico wixarika - español usando descomposición morfo
 year = "2016",
 month = sep
 }
-
 ```
+## Acknowledgements
 
+This work was supported by the Metropolitan Autonomous University (UAM) and the  National Autonomous University of Mexico (UNAM). The logo was desgined by Armando Martínez. 
