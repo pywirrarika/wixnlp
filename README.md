@@ -1,5 +1,4 @@
-<img src="https://raw.githubusercontent.com/pywirrarika/wixnlp/master/tools/wixnlp.png" width=150px>
-# wixnlp 
+<img src="https://raw.githubusercontent.com/pywirrarika/wixnlp/master/tools/wixnlp.png" width=250px>
 
 * **Version:** 0.1
 * **Licence:** GPL v.3
