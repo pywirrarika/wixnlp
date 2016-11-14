@@ -13,7 +13,27 @@ To segment a wixarika word use _wmorph.py_
 ```
 $./wmoph.py word
 ```
+From an paried translation file _name.wixes_, sep.py can split the file in to independent files _name.wix_ and _name.es_. This files are used by **Moses** for translation.
 
+File example (corpus.wixes):
+```
+p+-mexa=es una mesa
+p+-xupureru=es un sombrero
+p+-p+teya=es una botella
+p+-tek+xi=es un vaso
+p+-wiki=es un pájaro
+p+-ts+k+=es un perro
+p+-mitsu=es un gato
+p+-muxa=es un borrego
+```
+To split the file use:
+```
+$./tools/sep.py -s corpus
+```
+To merge an wix and an es file in to .wixes:
+```
+$./tools/sep.py -m corpus
+```
 
 
 ## Example
