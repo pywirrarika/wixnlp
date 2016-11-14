@@ -61,6 +61,7 @@ title = "Traductor estadístico wixarika - español usando descomposición morfo
 year = "2016",
 month = sep
 }
-
 ```
+## Acknowledgements
 
+This work was supported by the Autonomus Metropolitan University (UAM) and the National Autonomus University of Mexico (UNAM). The logo was desgined by Armando Martínez. 
