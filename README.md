@@ -9,7 +9,12 @@ The tools are written in Python with an GPLv3 Licence, so feel free to hack on t
 
 ## Usage
 
-...
+To segment a wixarika word use _wmorph.py_
+```
+$./wmoph.py word
+```
+
+
 
 ## Example
 
