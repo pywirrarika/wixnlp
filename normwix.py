@@ -46,8 +46,8 @@ def normwix(text):
 
 
 def tokenizewix(text):
-    text = re.sub(r"[^\s]([.|,|,\-,\"|:|;|¿|?|¡|!])", r" \1", text)
-    text = re.sub(r"([.|,|,\-,\"|:|;|¿|?|¡|!])[^\s]", r"\1 ", text)
+    text = re.sub(r"(?<![\s])([.|,|,\-,\"|:|;|¿|?|¡|!])", r" \1", text)
+    text = re.sub(r"([.|,|,\-,\"|:|;|¿|?|¡|!])(?<![\s])", r"\1 ", text)
     return text
 
 if __name__ == "__main__":
