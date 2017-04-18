@@ -21,8 +21,8 @@
 
 
 import sys
-from normwix import normwix, tokenizewix
-from seg import segment, segtext
+from .normwix import normwix, tokenizewix
+from .seg import segment, segtext
 
 sin = 0
 Fo = 0 

@@ -24,7 +24,7 @@ import re
 import codecs
 
 #prefixes and affixes of wixarika verbs
-from wix.wixaffixes import pre, post
+from .wix.wixaffixes import pre, post
 
 class Verb:
     def __init__(self, verb, debug=0):

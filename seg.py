@@ -21,7 +21,7 @@
 
 import sys
 import codecs
-from wmorph import Verb
+from .wmorph import Verb
 
 class Word:
     def __init__(self):

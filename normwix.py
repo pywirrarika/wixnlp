@@ -34,14 +34,14 @@ def normwix(text):
     text = re.sub(r"[üï]", "+", text, flags=re.IGNORECASE)
     text = re.sub(r"^ ", "", text, flags=re.IGNORECASE)
     text = re.sub(r"(?<!t|\[)s", "ts", text, flags=re.IGNORECASE)
-    #text = re.sub(r"[áàä]", "a", text, flags=re.IGNORECASE)
-    #text = re.sub(r"[éèë]", "e", text, flags=re.IGNORECASE)
-    #text = re.sub(r"[íì]", "i", text, flags=re.IGNORECASE)
-    #text = re.sub(r"[óòö]", "o", text, flags=re.IGNORECASE)
-    #text = re.sub(r"[úù]", "u", text, flags=re.IGNORECASE)
+    text = re.sub(r"[áàä]", "a", text, flags=re.IGNORECASE)
+    text = re.sub(r"[éèë]", "e", text, flags=re.IGNORECASE)
+    text = re.sub(r"[íì]", "i", text, flags=re.IGNORECASE)
+    text = re.sub(r"[óòö]", "o", text, flags=re.IGNORECASE)
+    text = re.sub(r"[úù]", "u", text, flags=re.IGNORECASE)
 
 
-    text = re.sub(r"([a-z])\1+", r"\1", text, flags=re.IGNORECASE)
+    text = re.sub(r"([a-z+])\1+", r"\1", text, flags=re.IGNORECASE)
     return text
 
 

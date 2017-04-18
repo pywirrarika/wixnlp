@@ -20,24 +20,9 @@
 
 import sys
 
-if len(sys.argv) < 2:
-    print("sep.py splits or merges an wixes file. An wixes file contains a pair")
-    print("of phrases in wixárika and spanish, separeted by an = symbol")
-    print("The in file must be *.wixes; or a root that shares .es and .wix")
-    print("usage: sep.py infile [-s|-m]")
-    print("     -s split the file (default)")
-    print("     -m merge two files")
-    sys.exit()
-infile = sys.argv[1] 
 
-try:
-    op = sys.argv[2] 
-except:
-    op = "-s" 
-
-root = infile
-
-if "s" in op:
+def split(infile):
+    root = infile
     text = open(infile+".wixes", "r")
     es = open(root+".wix", "w")
     wix = open(root+".es", "w")
@@ -56,8 +41,14 @@ if "s" in op:
             i = i + 1
         else:
             print("Ignored: ", line, end="")
-    print("We got ", str(i), "aligned phrases.")
-else:
+    print("     We got ", str(i), "aligned phrases.")
+    text.close()
+    wix.close()
+    es.close()
+
+
+def merge(infile):
+    root = infile
     text = open(infile+".wixes", "w")
     es = open(root+".wix", "r")
     wix = open(root+".es", "r")
@@ -67,10 +58,35 @@ else:
     while (esline and wixline):
         esline = esline.replace("\n", "")
         wixline = wixline.replace("\n", "")
-        text.write(esline+"="+wixline)
+        text.write(esline+" = "+wixline+"\n")
         esline = es.readline()
         wixline = wix.readline()
    
-text.close()
-wix.close()
-es.close()
+    text.close()
+    wix.close()
+    es.close()
+
+
+if __name__ == "__main__":
+
+    if len(sys.argv) < 2:
+        print("sep.py splits or merges an wixes file. An wixes file contains a pair")
+        print("of phrases in wixárika and spanish, separeted by an = symbol")
+        print("The in file must be *.wixes; or a root that shares .es and .wix")
+        print("usage: sep.py infile [-s|-m]")
+        print("     -s split the file (default)")
+        print("     -m merge two files")
+        sys.exit()
+
+    infile = sys.argv[1] 
+
+    try:
+        op = sys.argv[2] 
+    except:
+        op = "-s" 
+
+    if "s" in op:
+        split(infile)
+    else:
+        merge(infile)
+
