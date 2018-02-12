@@ -82,7 +82,7 @@ def segment(word, model='3grams', verbose=True):
                 max = len(p)
         pa = [e[1] for e in path_op]
         if len(pa) == 0:
-            print(non[i])
+            print(word)
         else:
             print(" ".join(pa))
         pass
@@ -93,7 +93,7 @@ def segment(word, model='3grams', verbose=True):
         mgrams.load()
         path = mgrams.best(v.paths)
         if len(path) == 0:
-            print(non[i])
+            print(word)
         else:
             print(" ".join(path))
 
@@ -105,7 +105,7 @@ def segment(word, model='3grams', verbose=True):
         path3 = m3grams.best(v.paths)
 
         if len(path3) == 0:
-            print(non[i])
+            print(word)
         else:
             print(" ".join(path3))
 
